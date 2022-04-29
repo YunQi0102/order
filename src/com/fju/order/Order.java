@@ -10,7 +10,12 @@ public class Order {
         this.delivery = delivery;
         shipFeed = delivery.price;
     }
+
     public int total() {
-        return (amount+shipFeed);
+        if (delivery instanceof ShopeeDelivery) {
+            return amount;
+        } else {
+            return (amount + shipFeed);
+        }
     }
 }
